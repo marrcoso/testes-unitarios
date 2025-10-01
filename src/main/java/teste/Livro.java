@@ -1,6 +1,6 @@
 package teste;
 
-import java.util.Arrays;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Livro extends Publicacao {
@@ -8,10 +8,9 @@ public class Livro extends Publicacao {
     private Publicacao publicacao;
     private int paginas;
 
-    public Livro(String titulo, int data, Publicacao publicacao, int paginas,  String... autores) {
+    public Livro(String titulo, LocalDate data, int paginas, String... autores) {
         super(titulo, data);
         this.autores = autores;
-        this.publicacao = publicacao;
         this.paginas = paginas;
     }
 
@@ -38,7 +37,7 @@ public class Livro extends Publicacao {
     @Override
     public String toString() {
         return "Livro: " + this.getTitulo() +
-                " (" + this.publicacao.getData() + ") " +
+                " (" + this.getData() + ") " +
                 " - " + paginas + " páginas - " +
                 "Autores: " + String.join(", ", verificarAutores());
     }

@@ -1,10 +1,12 @@
 package teste;
 
+import java.time.LocalDate;
+
 public abstract class Publicacao {
     private String titulo;
-    private int data;
+    private LocalDate data;
 
-    public Publicacao(String titulo, int data) {
+    public Publicacao(String titulo, LocalDate data) {
         this.titulo = titulo;
         this.data = data;
     }
@@ -13,7 +15,7 @@ public abstract class Publicacao {
         return titulo;
     }
 
-    public int getData() {
+    public LocalDate getData() {
         return data;
     }
 }
