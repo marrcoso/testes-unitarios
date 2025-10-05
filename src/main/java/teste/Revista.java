@@ -25,14 +25,17 @@ public class Revista extends Publicacao{
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Revista revista = (Revista) o;
-        return edicao == revista.edicao && Objects.equals(editora, revista.editora);
+        return edicao == revista.edicao && 
+               Objects.equals(editora, revista.editora) &&
+               Objects.equals(this.getTitulo(), revista.getTitulo()) &&
+               Objects.equals(this.getData(), revista.getData());
     }
 
     @Override
     public String toString() {
-        return "Revista{" +
-                "numEdicao=" + edicao +
-                ", editora='" + editora + '\'' +
-                '}';
+        return "Revista: " + this.getTitulo() +
+                " (" + this.getData().getMonthValue() + "/" + this.getData().getYear() + ")" +
+                " - editora " + editora +
+                " - edicao n:" + edicao;
     }
 }

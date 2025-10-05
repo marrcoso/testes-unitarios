@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class Livro extends Publicacao {
     private String[] autores;
-    private Publicacao publicacao;
     private int paginas;
 
     public Livro(String titulo, LocalDate data, int paginas, String... autores) {
@@ -31,14 +30,17 @@ public class Livro extends Publicacao {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Livro livro = (Livro) o;
-        return paginas == livro.paginas && Objects.deepEquals(verificarAutores(), livro.verificarAutores());
+        return paginas == livro.paginas && 
+               Objects.deepEquals(verificarAutores(), livro.verificarAutores()) &&
+               Objects.equals(this.getTitulo(), livro.getTitulo()) &&
+               Objects.equals(this.getData(), livro.getData());
     }
 
     @Override
     public String toString() {
         return "Livro: " + this.getTitulo() +
-                " (" + this.getData() + ") " +
-                " - " + paginas + " páginas - " +
-                "Autores: " + String.join(", ", verificarAutores());
+                " (" + this.getData().getYear() + ")" +
+                " - " + paginas + " paginas" +
+                " - Autores: " + String.join(", ", verificarAutores());
     }
 }
