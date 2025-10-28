@@ -2,7 +2,7 @@ package teste;
 
 import java.util.ArrayList;
 
-class Livraria {
+public class Livraria {
     private String nome;
     private ArrayList<Impressao> estoque;
     public Livraria(String nome) {
